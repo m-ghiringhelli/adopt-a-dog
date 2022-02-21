@@ -4,5 +4,13 @@ import { renderDogCard } from './render-utils.js';
 const dogListContainer = document.getElementById('dog-list-container');
 
 // on load
-// fetch all dogs
+window.addEventListener('load', async() => {
+    // fetch all dogs
+    const dogs = await getDogs();
+    
+    for (let dog of dogs) {
+        const dogElement = renderDogCard(dog);
+        dogListContainer.append(dogElement);
+    }
+});
 // render and append all dog cards to the container
